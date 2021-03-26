@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Un légume : {% endblock %}
+
+{% block body %}
+    <p>{{ legume.title|capitalize }}</p>
+    <p>{{ legume.description|nl2br }}</p>
+    <p>{{ legume.createdAt|date("d/m/Y") }}</p>
+{% endblock %}

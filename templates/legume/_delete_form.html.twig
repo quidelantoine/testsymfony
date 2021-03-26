@@ -1,0 +1,5 @@
+<form action="{{ path('delete_legume',{'id' : legume.id }) }}" method="post" onsubmit="return confirm('Voulez vous effacer ce légume')">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ legume.id ) }}">
+    <button>Effacer</button>
+</form>

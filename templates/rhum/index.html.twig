@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rhum index{% endblock %}
+
+{% block body %}
+    <h1>Rhum index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Country</th>
+                <th>Created_at</th>
+                <th>Modified_at</th>
+                <th>Degres</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rhum in rhums %}
+            <tr>
+                <td>{{ rhum.id }}</td>
+                <td>{{ rhum.title }}</td>
+                <td>{{ rhum.content }}</td>
+                <td>{{ rhum.country }}</td>
+                <td>{{ rhum.createdAt ? rhum.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ rhum.modifiedAt ? rhum.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ rhum.degres }}</td>
+                <td>
+                    <a href="{{ path('rhum_show', {'id': rhum.id}) }}">show</a>
+                    <a href="{{ path('rhum_edit', {'id': rhum.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('rhum_new') }}">Create new</a>
+{% endblock %}

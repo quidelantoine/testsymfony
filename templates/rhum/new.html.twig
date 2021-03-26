@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Rhum{% endblock %}
+
+{% block body %}
+    <h1>Create new Rhum</h1>
+
+    {{ include('rhum/_form.html.twig') }}
+
+    <a href="{{ path('rhum_index') }}">back to list</a>
+{% endblock %}

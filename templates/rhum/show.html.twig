@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rhum{% endblock %}
+
+{% block body %}
+    <h1>Rhum</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ rhum.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ rhum.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ rhum.content }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ rhum.country }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ rhum.createdAt ? rhum.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Modified_at</th>
+                <td>{{ rhum.modifiedAt ? rhum.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Degres</th>
+                <td>{{ rhum.degres }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('rhum_index') }}">back to list</a>
+
+    <a href="{{ path('rhum_edit', {'id': rhum.id}) }}">edit</a>
+
+    {{ include('rhum/_delete_form.html.twig') }}
+{% endblock %}
